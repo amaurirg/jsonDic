@@ -1,13 +1,11 @@
 import json
 import requests
 
-resposta = requests.get('https://api.github.com/users/amaurirg')
-print(resposta.text)
+nome = input("Digite o nome do usuário: ")
+resposta = requests.get(nome)
 
 dicJson = json.loads(resposta.text)
 print(dicJson)
 
 for k,v in dicJson.items():
     print(k + ' : ' + str(v))
-
-print(dicJson['login'])
